@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\test1Controller;
+use App\Http\Controllers\siswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/siswa', [App\Http\Controllers\siswaController::class, 'index'])->name('siswa');
+Route::get('/siswa',[siswaController::class, 'index'])->name('siswa');
