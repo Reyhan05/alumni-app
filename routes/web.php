@@ -33,3 +33,5 @@ Route::get('/test2', [test1Controller::class, 'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/siswa', [App\Http\Controllers\siswaController::class, 'index'])->name('siswa');

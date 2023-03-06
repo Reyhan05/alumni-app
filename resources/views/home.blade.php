@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <a href="route{{'siswa}}" class="btn btn-outline-primary">Mengarah ke siswa</a>
+                    <a href="{{route('siswa')}}" class="btn btn-outline-primary">Mengarah ke siswa</a>
                 </div>
             </div>
         </div>

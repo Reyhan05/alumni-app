@@ -14,7 +14,8 @@ class siswaController extends Controller
     public function index()
     {
         // Menambahkan page awal
-        return view('')
+        return view('siswa');
+        
     }
 
     /**
