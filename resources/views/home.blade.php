@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <a href="route{{'siswa}}" class="btn btn-outline-primary">Mengarah ke siswa</a>
                 </div>
             </div>
         </div>
