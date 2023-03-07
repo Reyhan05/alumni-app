@@ -15,12 +15,12 @@ class siswaController extends Controller
     public function index()
     {
         // fungsi query builder
-        //$students = Students::get();
+        $students = Students::get();
         // fungsi orm eloquent
         //$students2 = Students::all();
         // fungsi query builder
         //$students3 = DB::select('select * from students');
-        return view('siswa', compact('students'));   
+        return view('siswa', compact('students'));
     }
 
     /**
