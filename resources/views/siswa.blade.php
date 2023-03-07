@@ -27,7 +27,20 @@
 <body>
     <div class="container-fluid">
         <h1>Data alumni</h1>
-        `
+       <div class="col-md-12">
+       @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+       </div>
+       <div class="col-md-12">
+       @if (session('error'))
+            <div class="alert alert-error">
+                {{ session('error') }}  
+            </div>
+        @endif
+       </div>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreate">
             Create
@@ -41,7 +54,8 @@
                         <h5 class="modal-title" id="exampleModalLabel">Create data</h5>
                     </div>
                     <div class="modal-body">
-                        <form method="post">
+                        <form method="post" action="{{ route('siswa.store') }}">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

@@ -44,7 +44,22 @@ class siswaController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // metode eloquent
+        $students = new Students;
+        $students->id_gender = $request->id_gender;
+        $students->nama = $request->nama;
+        $students->tgl_lahir = $request->tgl_lahir;
+        $students->nik = $request->nik;
+        $students->jurusan = $request->jurusan;
+        $students->angkatan = $request->angkatan;
+        $students->alamat = $request->alamat;
+        $students->save();
+
+        if ($students){
+            return redirect()->route('siswa')->with(['success' => 'Data Berhasil Disimpan']);
+        } else {
+            return redirect()->route('siswa')->with(['error' => 'Data Gagal Disimpan']);
+        }
     }
 
     /**
