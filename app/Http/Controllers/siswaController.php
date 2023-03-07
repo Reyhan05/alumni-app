@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Students;
+use App\Models\jenis_kelamin;
 
 class siswaController extends Controller
 {
@@ -16,11 +17,13 @@ class siswaController extends Controller
     {
         // fungsi query builder
         $students = Students::get();
+
+        $genders = jenis_kelamin::get();
         // fungsi orm eloquent
         //$students2 = Students::all();
         // fungsi query builder
         //$students3 = DB::select('select * from students');
-        return view('siswa', compact('students'));
+        return view('siswa', compact('students','genders'));
     }
 
     /**

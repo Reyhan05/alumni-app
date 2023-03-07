@@ -22,6 +22,41 @@
   <body>
     <div class="container-fluid">
     <h1>Data alumni</h1>
+  `      <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreate">
+    Create
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalCreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Create data</h5>
+        </div>
+        <div class="modal-body">
+            <form method="post">
+                <div class="form-group">
+                    <label>Nama</label>
+                <input type="text" name="nama" class="form-control" placeholder="Please insert your name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Genders</label>
+                        <select id="id_gender" class="form-select">
+                        <option>-- Pilih Jenis Kelamin --</option>
+                        @foreach ($genders as $gender)
+                        <option value="{{$gender->id}}">{{$gender->jenkel}}</option>                        
+                        @endforeach
+                        </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>`
     <!-- membuat sebuah table -->
     <div class="table-responsive m-4">
         <table class="table table-striped table-hover">
@@ -41,22 +76,22 @@
                     $no = 1;
                 ?>
                 @if (count($students) > 0)
-                @foreach ($students as $siswa)
-                <tr>
-                   <td>{{$no++}}</td> 
-                   <td>{{$siswa->nama}}</td>
-                   <td>{{$siswa->tgl_lahir}}</td>
-                   <td>{{$siswa->nik}}</td>
-                   <td>{{$siswa->jurusan}}</td>
-                   <td>{{$siswa->kelas}}</td>
-                   <td>{{$siswa->angkatan}}</td>            
-                   <td>{{$siswa->alamat}}</td>
-                </tr>
-                @endforeach
-                @else
-                <tr>
-                    <td colspan="8" style="text-align:center">Data Not Found!</td>
-                </tr>
+                    @foreach ($students as $siswa)
+                        <tr>
+                        <td>{{$no++}}</td> 
+                        <td>{{$siswa->nama}}</td>
+                        <td>{{$siswa->tgl_lahir}}</td>
+                        <td>{{$siswa->nik}}</td>
+                        <td>{{$siswa->jurusan}}</td>
+                        <td>{{$siswa->kelas}}</td>
+                        <td>{{$siswa->angkatan}}</td>            
+                        <td>{{$siswa->alamat}}</td>
+                        </tr>
+                    @endforeach
+                    @else
+                    <tr>
+                        <td colspan="8" style="text-align:center">Data Not Found!</td>
+                    </tr>
                 @endif
             </tbody>
         </table>
@@ -69,8 +104,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>-->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
   </body>
 </html>
