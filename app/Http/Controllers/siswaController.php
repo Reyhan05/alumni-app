@@ -44,7 +44,7 @@ class siswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
