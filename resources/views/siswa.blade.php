@@ -61,7 +61,7 @@
                                     <div class="form-group">
                                         <label>Nama</label>
                                         <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
-                                            placeholder="Please insert your name" />
+                                            placeholder="Please insert your name"/>
                                         @error('nama')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -73,7 +73,7 @@
                                     <div class="form-group">
                                         <label class="form-label">NIK</label>
                                         <input type="text" name="nik" class="form-control @error('nik') is-invalid @enderror"
-                                            placeholder="Please insert your NIK" />
+                                            placeholder="Please insert your NIK"/>
                                         @error('nik')
                                         <div class="invalid-feedback">
                                             {{ $message }}
