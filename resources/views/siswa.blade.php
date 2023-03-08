@@ -74,10 +74,10 @@
                                 <div class="col-md-6 mt-2">
                                     <div class="form-group">
                                         <label class="form-label">Genders</label>
-                                        <select id="id_gender" class="form-select">
-                                            <option>-- Pilih Jenis Kelamin --</option>
+                                        <select name="id_gender" class="form-select">
+                                            <option selected disabled>-- Pilih Jenis Kelamin --</option>
                                             @foreach ($genders as $gender)
-                                            <option value="{{$gender->id}}">{{$gender->jenkel}}</option>
+                                            <option value="{{ $gender->id }}">{{$gender->jenkel}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -105,11 +105,11 @@
                                 </div>
                                 <div class="form-group">
                                         <label class="form-label">Alamat</label>
-                                        <textarea rows="5" class="form-control" placeholder="Please insert your Address"></textarea>
+                                        <textarea name="alamat" rows="5" class="form-control" placeholder="Please insert your Address"></textarea>
                                     </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
                         </form>
                     </div>
@@ -142,7 +142,6 @@
                         <td>{{$siswa->tgl_lahir}}</td>
                         <td>{{$siswa->nik}}</td>
                         <td>{{$siswa->jurusan}}</td>
-                        <td>{{$siswa->kelas}}</td>
                         <td>{{$siswa->angkatan}}</td>
                         <td>{{$siswa->alamat}}</td>
                     </tr>

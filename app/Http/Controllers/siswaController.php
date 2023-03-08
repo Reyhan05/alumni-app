@@ -56,9 +56,9 @@ class siswaController extends Controller
         $students->save();
 
         if ($students){
-            return redirect()->route('siswa')->with(['success' => 'Data Berhasil Disimpan']);
+            return redirect('/siswa')->with(['success' => 'Data Berhasil Disimpan']);
         } else {
-            return redirect()->route('siswa')->with(['error' => 'Data Gagal Disimpan']);
+            return redirect('/siswa')->with(['error' => 'Data Gagal Disimpan']);
         }
     }
 
