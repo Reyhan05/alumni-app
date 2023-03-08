@@ -60,52 +60,87 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nama</label>
-                                        <input type="text" name="nama" class="form-control"
+                                        <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
                                             placeholder="Please insert your name" />
+                                        @error('nama')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">NIK</label>
-                                        <input type="text" name="nik" class="form-control"
+                                        <input type="text" name="nik" class="form-control @error('nik') is-invalid @enderror"
                                             placeholder="Please insert your NIK" />
+                                        @error('nik')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-2">
                                     <div class="form-group">
                                         <label class="form-label">Genders</label>
-                                        <select name="id_gender" class="form-select">
+                                        <select name="id_gender" class="form-select @error('id_gender') is-invalid @enderror">
                                             <option selected disabled>-- Pilih Jenis Kelamin --</option>
                                             @foreach ($genders as $gender)
                                             <option value="{{ $gender->id }}">{{$gender->jenkel}}</option>
                                             @endforeach
                                         </select>
+                                        @error('id_gender')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-2">
                                     <div class="form-group">
                                         <label class="form-label">Tanggal Lahir</label>
-                                        <input type="date" name="tgl_lahir" class="form-control"
+                                        <input type="date" name="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror"
                                             placeholder="Please insert your birth date"/>
+                                        @error('tgl_lahir')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror    
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-2">
                                     <div class="form-group">
                                         <label class="form-label">Jurusan</label>
-                                        <input type="text" name="jurusan" class="form-control"
+                                        <input type="text" name="jurusan" class="form-control @error('jurusan') is-invalid @enderror"
                                             placeholder="Please insert your Majority"/>
+                                        @error('jurusan')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-2">
                                     <div class="form-group">
                                         <label class="form-label">Angkatan</label>
-                                        <input type="number" name="angkatan" class="form-control"
+                                        <input type="number" name="angkatan" class="form-control @error('angkatan') is-invalid @enderror"
                                             placeholder="Please insert your Generation"/>
+                                        @error('angkatan')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
                                         <label class="form-label">Alamat</label>
-                                        <textarea name="alamat" rows="5" class="form-control" placeholder="Please insert your Address"></textarea>
+                                        <textarea name="alamat" rows="5" class="form-control @error('alamat') is-invalid @enderror" placeholder="Please insert your Address"></textarea>
+                                        @error('alamat')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                             </div>
                             <div class="modal-footer">

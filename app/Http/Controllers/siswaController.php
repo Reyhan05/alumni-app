@@ -44,6 +44,20 @@ class siswaController extends Controller
      */
     public function store(Request $request)
     {
+        // form validation
+        $this->validate($request,
+            [
+                'id_jenkel' => 'required|integer',
+                'nama' => 'required|max:255',
+                'tgl_lahir' => 'required|date',
+                'nik' => 'required|min:10|max:15',
+                'jurusan' => 'required|max:3',
+                'angkatan' => 'required|digits:3',
+                'alamat' => 'required|string|max:255',
+            ]
+        );
+
+
         // metode eloquent
         $students = new Students;
         $students->id_gender = $request->id_gender;
