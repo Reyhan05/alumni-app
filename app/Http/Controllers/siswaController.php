@@ -128,6 +128,13 @@ class siswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $siswa = Students::find($id);
+        $siswa->delete();
+
+        if ($students){
+            return redirect('/siswa')->with(['success' => 'Berhasil Delete data']);
+        } else {
+            return redirect('/siswa')->with(['error' => 'Ada masalah Coi!']);
+        }
     }
 }

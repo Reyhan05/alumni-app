@@ -184,6 +184,8 @@
                         <td>{{$siswa->alamat}}</td>
                         <td class="text-center">
                             <form onsubmit="return confirm('Are you sure?')" action="{{ route('siswa.delete',$siswa.id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-small">Delete</button>
                             </form>
                         </td>
