@@ -1,3 +1,6 @@
+// event listener 
+$(document).on('click','.deleteSiswa', function(){
+    var url = $(this).attr('data-href')   
 Swal.fire({
     title: 'Are you sure?',
     text: "You won't be able to revert this!",
@@ -8,10 +11,7 @@ Swal.fire({
     confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success'
-      )
+      window.location.href = url
     }
   })
+});  

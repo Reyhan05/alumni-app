@@ -184,7 +184,7 @@
                         <td>{{$siswa->angkatan}}</td>
                         <td>{{$siswa->alamat}}</td>
                         <td class="text-center">
-                            <button data-href="{{ route('siswa.delete',$siswa->id) }}" type="submit" class="btn btn-danger btn-small">Delete</button>
+                            <button data-href="{{ route('siswa.delete',$siswa->id) }}" type="submit" class="btn btn-danger btn-small deleteSiswa">Delete</button>
                         </td>
                     </tr>
                     @endforeach
