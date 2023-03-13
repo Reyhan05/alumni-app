@@ -131,7 +131,7 @@ class siswaController extends Controller
         $siswa = Students::find($id);
         $siswa->delete();
 
-        if ($students){
+        if ($siswa){
             return redirect('/siswa')->with(['success' => 'Berhasil Delete data']);
         } else {
             return redirect('/siswa')->with(['error' => 'Ada masalah Coi!']);

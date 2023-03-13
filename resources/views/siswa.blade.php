@@ -180,14 +180,11 @@
                         <td>{{$siswa->tgl_lahir}}</td>
                         <td>{{$siswa->nik}}</td>
                         <td>{{$siswa->jurusan}}</td>
+                        <td>{{$siswa->id_gender}}</td>
                         <td>{{$siswa->angkatan}}</td>
                         <td>{{$siswa->alamat}}</td>
                         <td class="text-center">
-                            <form onsubmit="return confirm('Are you sure?')" action="{{ route('siswa.delete',$siswa.id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-small">Delete</button>
-                            </form>
+                            <button data-href="{{ route('siswa.delete',$siswa->id) }}" type="submit" class="btn btn-danger btn-small">Delete</button>
                         </td>
                     </tr>
                     @endforeach
@@ -200,13 +197,17 @@
             </table>
         </div>
     </div>
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/siswa.js')}}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    // jquery cdn
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
 
