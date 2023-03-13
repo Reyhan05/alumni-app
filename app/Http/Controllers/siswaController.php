@@ -45,27 +45,27 @@ class siswaController extends Controller
     public function store(Request $request)
     {
         // form validation
-        $this->validate($request,
-            [
-                'id_jenkel' => 'required|integer',
-                'nama' => 'required|max:255',
-                'tgl_lahir' => 'required|date',
-                'nik' => 'required|max:15',
-                'jurusan' => 'required|max:3',
-                'angkatan' => 'required|max:3',
-                'alamat' => 'required|string|max:255'
-            ],
-            // validasi custom
-            // [
-            //     'id_jenkel.required' => 'Wajib di isi!',
-            //     'name.required' => 'Wajib di isi!',
-            //     'tgl_lahir.required' => 'Wajib di isi!',
-            //     'nik.required' => 'Wajib di isi!',
-            //     'jurusan.required' => 'Wajib di isi!',
-            //     'angkatan.required' => 'Wajib di isi!',
-            //     'alamat.required' => 'Wajib di isi!'
-            // ],
-        );
+        // $this->validate($request,
+        //     [
+        //         'id_jenkel' => 'required|integer',
+        //         'nama' => 'required|max:255',
+        //         'tgl_lahir' => 'required|date',
+        //         'nik' => 'required|max:15',
+        //         'jurusan' => 'required|max:3',
+        //         'angkatan' => 'required|max:3',
+        //         'alamat' => 'required|string|max:255'
+        //     ],
+        //     // validasi custom
+        //     // [
+        //     //     'id_jenkel.required' => 'Wajib di isi!',
+        //     //     'name.required' => 'Wajib di isi!',
+        //     //     'tgl_lahir.required' => 'Wajib di isi!',
+        //     //     'nik.required' => 'Wajib di isi!',
+        //     //     'jurusan.required' => 'Wajib di isi!',
+        //     //     'angkatan.required' => 'Wajib di isi!',
+        //     //     'alamat.required' => 'Wajib di isi!'
+        //     // ],
+        // );
 
 
         // metode eloquent

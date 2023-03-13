@@ -163,6 +163,9 @@
                         <th>Jurusan</th>
                         <th>Angkatan</th>
                         <th>Alamat</th>
+                        <!-- fungsi untuk menampung button delete dan edit serta detail -->
+                        <th>Opsi</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -179,6 +182,11 @@
                         <td>{{$siswa->jurusan}}</td>
                         <td>{{$siswa->angkatan}}</td>
                         <td>{{$siswa->alamat}}</td>
+                        <td class="text-center">
+                            <form onsubmit="return confirm('Are you sure?')" action="{{ route('siswa.delete',$siswa.id) }}" method="post">
+                                <button type="submit" class="btn btn-danger btn-small">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                     @else
