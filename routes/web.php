@@ -27,7 +27,7 @@ Route::get('/test', function () {
 // metode tanpa view
 Route::get('/test1', function () {
     return 'hello vlog';   
-}); 
+});     
 
 // metode dengan menggunakan dengan controller
 Route::get('/test2', [test1Controller::class, 'index']);
