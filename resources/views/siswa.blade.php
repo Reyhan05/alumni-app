@@ -187,6 +187,9 @@
                         </td>
                     </tr>
                     @endforeach
+                    <div class="text-center">
+                    {{ $students->render() }}
+                    </div>
                     @else
                     <tr>
                         <td colspan="8" style="text-align:center">Data Not Found!</td>
