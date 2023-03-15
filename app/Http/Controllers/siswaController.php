@@ -118,7 +118,22 @@ class siswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // metode eloquent
+        $students = Students::find($id);
+        $students->id_gender = $request->id_gender;
+        $students->nama = $request->nama;
+        $students->tgl_lahir = $request->tgl_lahir;
+        $students->nik = $request->nik;
+        $students->jurusan = $request->jurusan;
+        $students->angkatan = $request->angkatan;
+        $students->alamat = $request->alamat;
+        $students->save();
+
+        if ($students){
+            return redirect('/siswa')->with(['success' => 'Data Berhasil Diupdate']);
+        } else {
+            return redirect('/siswa')->with(['error' => 'Data Gagal Diupdate']);
+        }
     }
 
     /**

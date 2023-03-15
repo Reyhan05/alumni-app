@@ -183,9 +183,83 @@
                         <td>{{$siswa->angkatan}}</td>
                         <td>{{$siswa->alamat}}</td>
                         <td class="text-center">
-                            <button data-href="{{ route('siswa.delete',$siswa->id) }}" data-name="{{$siswa->nama}}" type="submit" class="btn btn-danger btn-small deleteSiswa">Delete</button>
-                        </td>
-                    </tr>
+                            <button data-href="{{route('siswa.delete',$siswa->id)}}" data-name="{{$siswa->nama}}" type="submit" class="btn btn-danger btn-small deleteSiswa">Delete</button>
+                            <br/><br/>
+                            <!-- membuat fungsi edit -->
+                            <button data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $siswa->id }}" type="button" class="btn btn-info btn-small">Edit</button>
+                            </td>
+                        </tr>
+
+                        <!-- Modal edit dan Update -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalEdit_{{ $siswa->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit data</h5>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="{{ route('siswa.update', $siswa->id) }}">
+                                    @csrf
+                                @method('PUT')
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" name="nama" value="{{ $siswa->nama }}" class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nik</label>
+                                            <input type="text" name="nik" value="{{ $siswa->nik }}" class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Day of Birth</label>
+                                            <input type="date" name="tgl_lahir" value="{{ $siswa->tgl_lahir }}" class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Genders</label>
+                                            <select name="id_gender" class="form-select" required>
+                                                <option selected disable>-- Pilih jenis kelamin --</option>
+                                                @foreach ($genders as $gender)
+                                                <option value="{{ $gender->id }}" {{ $siswa->id_gender == $gender->id ? 'selected' : ''}}>{{ $gender->jenkel }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Jurusan</label>
+                                            <input type="text" name="jurusan" value="{{ $siswa->jurusan }}" class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">  
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Angkatan</label>
+                                            <input type="text" name="angkatan" value="{{ $siswa->angkatan }}" class="form-control" required />
+                                        </div>
+                                    </div>
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Alamat</label>
+                                            <div class="form-group">
+                                              <label for=""></label>
+                                              <textarea name="alamat"  class="form-control" required>{{ $siswa->alamat }}</textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
                     <div class="text-center">
                     {{ $students->render() }}
