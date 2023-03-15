@@ -19,7 +19,7 @@ class siswaController extends Controller
     public function index()
     {
         // fungsi query builder
-        $students = Students::paginate(10);
+        $students = Students::ordetBy('id','desc')->paginate(10);
 
         $genders = jenis_kelamin::get();
         // fungsi orm eloquent
