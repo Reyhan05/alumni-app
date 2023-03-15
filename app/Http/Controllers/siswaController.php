@@ -48,16 +48,16 @@ class siswaController extends Controller
     public function store(Request $request)
     {
         // form validation
-        $this->validate($request,
-            [
-                'id_jenkel' => 'required|integer',
-                'nama' => 'required|max:255',
-                'tgl_lahir' => 'required|date',
-                'nik' => 'required|max:15',
-                'jurusan' => 'required|max:3',
-                'angkatan' => 'required|max:3',
-                'alamat' => 'required|string|max:255'
-            ],
+        // $this->validate($request,
+            // [
+            //     'id_jenkel' => 'required|integer',
+            //     'nama' => 'required|max:255',
+            //     'tgl_lahir' => 'required|date',
+            //     'nik' => 'required|max:15',
+            //     'jurusan' => 'required|max:3',
+            //     'angkatan' => 'required|max:3',
+            //     'alamat' => 'required|string|max:255'
+            // ],
         
         //     // validasi custom
         //     // [
@@ -69,7 +69,7 @@ class siswaController extends Controller
         //     //     'angkatan.required' => 'Wajib di isi!',
         //     //     'alamat.required' => 'Wajib di isi!'
         //     // ],
-         );
+        
 
 
         // metode eloquent
@@ -95,7 +95,7 @@ class siswaController extends Controller
             // untuk memasukan foto ke dalam folder uploads
             $img = Image::make($image->getRealPath());
             $img->stream();
-            Storage::disk('public')->put('uploads'.'/'.$filename, $img, 'public')
+            Storage::disk('public')->put('uploads'.'/'.$filename, $img, 'public');
         }
         $students->save();
 

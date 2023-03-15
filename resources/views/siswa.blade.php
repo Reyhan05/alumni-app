@@ -24,6 +24,14 @@
     </script>
 </head>
 
+<style>
+    .image {
+        width: 100px;
+        heigt: 100px;
+        margin-bottom: 15px;
+    }
+</style>
+
 <body>
     <div class="container-fluid">
         <h1>Data alumni</h1>
@@ -133,6 +141,17 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <br/>
+                                <div class="col-md mt-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Photo</label>
+                                        <br/>
+                                        <img id="previewImg" src="{{ asset('img/avatar.png')}}" class="image"/>
+                                        <div class="input-group">
+                                        <input type="file" name="photo" onchanges="previewFile(this)" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                         <label class="form-label">Alamat</label>
                                         <textarea name="alamat" rows="5" class="form-control @error('alamat') is-invalid @enderror" placeholder="Please insert your Address"></textarea>
@@ -158,6 +177,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
+                        <th>Photo</th>
                         <th>Tanggal Lahir</th>
                         <th>NIK</th>
                         <th>Jurusan</th>
@@ -177,6 +197,7 @@
                     <tr>
                         <td>{{$no++}}</td>
                         <td>{{$siswa->nama}}</td>
+                        <td>{{$siswa->photo}}</td>
                         <td>{{$siswa->tgl_lahir}}</td>
                         <td>{{$siswa->nik}}</td>
                         <td>{{$siswa->jurusan}}</td>
@@ -295,6 +316,17 @@
         }
     })
 });
+    
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+        if(file){
+            var reader = new FileReader();
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+            reader.readAsDataURL(file);
+        }
+    }
 
     </script>
 
