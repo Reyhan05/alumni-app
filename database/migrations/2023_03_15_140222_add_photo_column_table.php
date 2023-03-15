@@ -13,7 +13,9 @@ class AddPhotoColumnTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('students', function (Blueprint $table) {
+            $table->string('photo')->after('nama')->nullable();
+        });
     }
 
     /**
@@ -23,6 +25,6 @@ class AddPhotoColumnTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropColumn(['photo']);
     }
 }

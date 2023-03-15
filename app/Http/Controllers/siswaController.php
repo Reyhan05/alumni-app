@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Students;
 use App\Models\jenis_kelamin;
+use App\Http\Request\siswaValidate;
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 class siswaController extends Controller
 {
@@ -78,6 +81,22 @@ class siswaController extends Controller
         $students->jurusan = $request->jurusan;
         $students->angkatan = $request->angkatan;
         $students->alamat = $request->alamat;
+
+        // definisikan folder tempat upload
+        $path = 'storage/updloads/';
+        // Jikalau menambahkan foto
+        if ($request->hasFile('photo')){
+            // permintaan atau request foto
+            $image = $request->photo;
+
+            // format nama photo yang akan di taruh di database
+            $filename = time() .' . ' . $image->getClientOriginalExtension();
+
+            // untuk memasukan foto ke dalam folder uploads
+            $img = Image::make($image->getRealPath());
+            $img->stream();
+            Storage::disk('public')->put('uploads'.'/'.$filename, $img, 'public')
+        }
         $students->save();
 
         if ($students){
