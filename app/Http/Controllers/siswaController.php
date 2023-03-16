@@ -18,7 +18,7 @@ class siswaController extends Controller
     public function index()
     {
         // fungsi query builder
-        $students = Students::ordetBy('id','desc')->paginate(10);
+        $students = Students::orderBy('id','desc')->paginate(10);
 
         $genders = jenis_kelamin::get();
         // fungsi orm eloquent
@@ -87,7 +87,7 @@ class siswaController extends Controller
         if (File::isDirectory($path)){
             // masukan kondisi ketika file berada dalam directory uploads
             // mendefinisikan variable untuk menampung request atau permintaan file foto
-            $file = $request->file('foto');
+            $file = $request->file('photo');
 
             // mendefinisikan nama format nama file foto
             $filename = $file->getClientOriginalName();
@@ -96,7 +96,7 @@ class siswaController extends Controller
             $file->move($path, $filename);
 
             // menyimpan nama file foto ke dalam database
-            $students->foto = $filename;           
+            $students->photo = $filename;      
         }
         $students->save();
 
@@ -147,7 +147,25 @@ class siswaController extends Controller
         $students->jurusan = $request->jurusan;
         $students->angkatan = $request->angkatan;
         $students->alamat = $request->alamat;
+
+        $path = 'uploads/';
+        // Jikalau menambahkan foto
+        if (File::isDirectory($path)){
+            // masukan kondisi ketika file berada dalam directory uploads
+            // mendefinisikan variable untuk menampung request atau permintaan file foto
+            $file = $request->file('photo-edit');
+
+            // mendefinisikan nama format nama file foto
+            $filename = $file->getClientOriginalName();
+
+            // memindahkan file foto ke dalam folder uploads beserta format nama
+            $file->move($path, $filename);
+
+            // menyimpan nama file foto ke dalam database
+            $students->photo = $filename;      
+        }
         $students->save();
+
 
         if ($students){
             return redirect('/siswa')->with(['success' => 'Data Berhasil Diupdate']);

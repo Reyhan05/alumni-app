@@ -26,8 +26,8 @@
 
 <style>
     .image {
-        width: 100px;
-        heigt: 100px;
+        width: 90px;
+        heigt: 90px;
         margin-bottom: 15px;
     }
 </style>
@@ -62,7 +62,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">Create data</h5>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="{{ route('siswa.store') }}">
+                        <form method="post" action="{{ route('siswa.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
@@ -148,7 +148,7 @@
                                         <br/>
                                         <img id="previewImg" src="{{ asset('img/avatar.png')}}" class="image"/>
                                         <div class="input-group">
-                                        <input type="file" name="photo" onchanges="previewFile(this)" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                        <input type="file" name="photo" onchanges="previewFile(this)" class="form-control uploads" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                                         </div>
                                     </div>
                                 </div>
@@ -197,7 +197,9 @@
                     <tr>
                         <td>{{$no++}}</td>
                         <td>{{$siswa->nama}}</td>
-                        <td>{{$siswa->photo}}</td>
+                        <td>
+                            <img class="image" src="{{ $siswa->photo == null? asset('img/avatar.png')  : asset('uploads/' . $siswa->photo) }}" alt="">    
+                        </td>
                         <td>{{$siswa->tgl_lahir}}</td>
                         <td>{{$siswa->nik}}</td>
                         <td>{{$siswa->jurusan}}</td>
@@ -220,7 +222,7 @@
                                 <h5 class="modal-title" id="exampleModalLabel">Edit data</h5>
                             </div>
                             <div class="modal-body">
-                                <form method="post" action="{{ route('siswa.update', $siswa->id) }}">
+                                <form method="post" action="{{ route('siswa.update', $siswa->id) }}" enctype="multipart/form-data">
                                     @csrf
                                 @method('PUT')
                                 <div class="row">
@@ -264,6 +266,16 @@
                                             <label for="" class="form-label">Angkatan</label>
                                             <input type="text" name="angkatan" value="{{ $siswa->angkatan }}" class="form-control" required />
                                         </div>
+                                    </div>
+                                    <div class="col-md mt-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Photo</label>
+                                        <br/>
+                                        <img id="previewImg" src="{{ asset('img/avatar.png')}}" class="image"/>
+                                        <div class="input-group">
+                                        <input type="file" name="photo-edit" onchanges="previewFile(this)" class="form-control uploads" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                        </div>
+                                    </div>
                                     </div>
                                         <div class="form-group">
                                             <label for="" class="form-label">Alamat</label>
@@ -311,23 +323,35 @@
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = url
-        }
-    })
-});
-    
-    function previewFile(input){
-        var file = $("input[type=file]").get(0).files[0];
-        if(file){
-            var reader = new FileReader();
-            reader.onload = function(){
-                $("#previewImg").attr("src", reader.result);
+            if (result.isConfirmed) {
+                window.location.href = url
             }
-            reader.readAsDataURL(file);
-        }
-    }
+        })
+    });
+    
+    // function previewFile(input){
+    //     var file = $("input[type=file]").get(0).files[0];
+    //     if(file){
+    //         var reader = new FileReader();
+    //         reader.onload = function(){
+    //             $("#previewImg").attr("src", reader.result);
+    //         }
+    //         reader.readAsDataURL(file);
+    //     }
+    // }
 
+    // event listener ketika klik button upload
+    $('.uploads').on('change', function(){
+        var input = $(this);
+
+        // untuk mendefinisikan nama file
+        var reader = new FileReader();
+        reader.onload = function(){
+            $('.image').attr('src', reader.result);
+        }
+        reader.readAsDataURL($input[0].files[0]);
+    });
+   
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
