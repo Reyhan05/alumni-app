@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Students;
 use App\Models\jenis_kelamin;
 use App\Http\Request\siswaValidate;
-use Illuminate\Support\Facades\Storage;
-use Image;
+use File;
 
 class siswaController extends Controller
 {
@@ -82,20 +81,13 @@ class siswaController extends Controller
         $students->angkatan = $request->angkatan;
         $students->alamat = $request->alamat;
 
-        // definisikan folder tempat upload
-        $path = 'storage/updloads/';
+        // untuk mendefinisikan letak folder foto
+        $path = 'uploads/';
         // Jikalau menambahkan foto
-        if ($request->hasFile('photo')){
-            // permintaan atau request foto
-            $image = $request->photo;
-
-            // format nama photo yang akan di taruh di database
-            $filename = time() .' . ' . $image->getClientOriginalExtension();
-
-            // untuk memasukan foto ke dalam folder uploads
-            $img = Image::make($image->getRealPath());
-            $img->stream();
-            Storage::disk('public')->put('uploads'.'/'.$filename, $img, 'public');
+        if (File::isDirectory($path)){
+            // masukan kondisi ketika file berada dalam directory uploads
+            // mendefinisikan variable untuk menampung request atau permintaan file foto
+            $file = $request->file('foto');
         }
         $students->save();
 
