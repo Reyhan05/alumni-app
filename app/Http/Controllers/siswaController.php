@@ -88,6 +88,15 @@ class siswaController extends Controller
             // masukan kondisi ketika file berada dalam directory uploads
             // mendefinisikan variable untuk menampung request atau permintaan file foto
             $file = $request->file('foto');
+
+            // mendefinisikan nama format nama file foto
+            $filename = $file->getClientOriginalName();
+
+            // memindahkan file foto ke dalam folder uploads beserta format nama
+            $file->move($path, $filename);
+
+            // menyimpan nama file foto ke dalam database
+            $students->foto = $filename;           
         }
         $students->save();
 
