@@ -214,7 +214,6 @@
                         </tr>
 
                         <!-- Modal edit dan Update -->
-                        <!-- Modal -->
                         <div class="modal fade" id="modalEdit_{{ $siswa->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -271,7 +270,7 @@
                                     <div class="form-group">
                                         <label class="form-label">Photo</label>
                                         <br/>
-                                        
+
                                         <img id="previewImg" src="{{ asset('img/avatar.png')}}" class="image"/>
                                         <div class="input-group">
                                         <input type="file" name="photo-edit" onchanges="previewFile(this)" class="form-control uploads" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
