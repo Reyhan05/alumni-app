@@ -207,6 +207,9 @@ class siswaController extends Controller
     }
 
     public function exportPDF(){
-        $export = PDF::loadView('siswa')->setPaper('A4', 'potrait');
+        $siswa = Students::orderBy('id', 'desc')->get();
+
+        $export = PDF::loadView('siswapdf',['students' => $siswa]);
+        return $export->download('pdf_siswa.pdf');
     }
 }
