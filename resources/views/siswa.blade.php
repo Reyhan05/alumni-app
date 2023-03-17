@@ -271,6 +271,7 @@
                                     <div class="form-group">
                                         <label class="form-label">Photo</label>
                                         <br/>
+                                        
                                         <img id="previewImg" src="{{ asset('img/avatar.png')}}" class="image"/>
                                         <div class="input-group">
                                         <input type="file" name="photo-edit" onchanges="previewFile(this)" class="form-control uploads" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
@@ -294,9 +295,6 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="text-center">
-                    {{ $students->render() }}
-                    </div>
                     @else
                     <tr>
                         <td colspan="8" style="text-align:center">Data Not Found!</td>
@@ -304,6 +302,9 @@
                     @endif
                 </tbody>
             </table>
+            <div class="text-center">
+                    {{ $students->render() }}
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>

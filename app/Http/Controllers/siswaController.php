@@ -147,26 +147,24 @@ class siswaController extends Controller
         $students->jurusan = $request->jurusan;
         $students->angkatan = $request->angkatan;
         $students->alamat = $request->alamat;
-        $path = 'uploads/'.$siswa->photo;
+        $path = 'uploads/'.$students->photo;
 
-        $path = 'uploads/';
         // Jikalau menambahkan foto
-        if (File::isDirectory($path)){
+        if ($request->hasFile('photo-edit')){
             if (File::exists($path)){
                 File::delete($path);
             }
-            // masukan kondisi ketika file berada dalam directory uploads
-            // mendefinisikan variable untuk menampung request atau permintaan file foto
-            $file = $request->file('photo-edit');
-
-            // mendefinisikan nama format nama file foto
-            $filename = $file->getClientOriginalName();
-
-            // memindahkan file foto ke dalam folder uploads beserta format nama
-            $file->move($path, $filename);
-
-            // menyimpan nama file foto ke dalam database
-            $students->photo = $filename;      
+                // mendefinisikan variable untuk menampung request atau permintaan file foto
+                $file = $request->file('photo-edit');
+    
+                // mendefinisikan nama format nama file foto
+                $filename = $file->getClientOriginalName();
+    
+                // memindahkan file foto ke dalam folder uploads beserta format nama
+                $file->move('uploads/', $filename);
+    
+                // menyimpan nama file foto ke dalam database
+                $students->photo = $filename;      
         }
         $students->save();
 
