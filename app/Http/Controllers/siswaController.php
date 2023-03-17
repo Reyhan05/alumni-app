@@ -7,6 +7,7 @@ use App\Models\Students;
 use App\Models\jenis_kelamin;
 use App\Http\Request\siswaValidate;
 use File;
+use PDF;
 
 class siswaController extends Controller
 {
@@ -203,5 +204,9 @@ class siswaController extends Controller
         } else {
             return redirect('/siswa')->with(['error' => 'Ada masalah Coi!']);
         }
+    }
+
+    public function exportPDF(){
+        $export = PDF::loadView('siswa')->setPaper('A4', 'potrait');
     }
 }

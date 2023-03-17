@@ -53,6 +53,8 @@
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreate">
             Create
         </button>
+        <!-- button print -->
+        <a href="{{ route('siswa.pdf') }}" class="btn btn-warning btn-small">PDF</a>
 
         <!-- Modal -->
         <div class="modal fade" id="modalCreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
