@@ -147,10 +147,14 @@ class siswaController extends Controller
         $students->jurusan = $request->jurusan;
         $students->angkatan = $request->angkatan;
         $students->alamat = $request->alamat;
+        $path = 'uploads/'.$siswa->photo;
 
         $path = 'uploads/';
         // Jikalau menambahkan foto
         if (File::isDirectory($path)){
+            if (File::exists($path)){
+                File::delete($path);
+            }
             // masukan kondisi ketika file berada dalam directory uploads
             // mendefinisikan variable untuk menampung request atau permintaan file foto
             $file = $request->file('photo-edit');
