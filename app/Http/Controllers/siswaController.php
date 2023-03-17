@@ -182,7 +182,18 @@ class siswaController extends Controller
      */
     public function destroy($id)
     {
+        // mencari object berdasarkan parameter id
         $siswa = Students::find($id);
+
+        // mendefinisikan letak folder foto
+        $path = 'uploads/'.$siswa->photo;
+
+        // menambahkan kondisi ketika ada file maka system akan menghapus file foto
+        if(File::exists($path)){
+            // logic hapus file di jalankan
+            File::delete($path);
+        }
+
         $siswa->delete();
 
         if ($siswa){
