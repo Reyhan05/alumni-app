@@ -209,7 +209,7 @@ class siswaController extends Controller
     public function exportPDF(){
         $siswa = Students::orderBy('id', 'desc')->get();
 
-        $export = PDF::loadView('siswapdf',['students' => $siswa]);
+        $export = PDF::loadView('siswapdf',['students' => $siswa])->setOptions(['defaultFont' => 'sans-serif']);;
         return $export->download('pdf_siswa.pdf');
     }
 }
