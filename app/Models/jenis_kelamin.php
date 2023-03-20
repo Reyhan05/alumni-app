@@ -12,6 +12,7 @@ class jenis_kelamin extends Model
     use HasFactory;
 
     public function jenkel() {
+        return $this->belongsTo(Students::class, 'id_gender', 'id');
         return $this->belongsTo('App\Models\Students', 'id_gender', 'id');
     }
 }
