@@ -178,9 +178,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Photo</th>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
-                        <th>Photo</th>
                         <th>Tanggal Lahir</th>
                         <th>NIK</th>
                         <th>Jurusan</th>
@@ -199,12 +199,13 @@
                     @foreach ($students as $siswa)
                     <tr>
                         <td>{{$no++}}</td>
-                        <td>{{$siswa->nama}}</td>
-                        @foreach ($siswa->jenkels as $jenis_kelamin)
-                        <td>{{$siswa->jenkels as $jenkel}}</td>
                         <td>
                             <img class="image" src="{{ $siswa->photo == null? asset('img/avatar.png')  : asset('uploads/' . $siswa->photo) }}" alt="">    
                         </td>
+                        <td>{{$siswa->nama}}</td>
+                        @foreach ($siswa->jenkels as $jenis_kelamin)
+                        <td>{{$jenis_kelamin->jenkel}}</td>
+                        @endforeach
                         <td>{{$siswa->tgl_lahir}}</td>
                         <td>{{$siswa->nik}}</td>
                         <td>{{$siswa->jurusan}}</td>

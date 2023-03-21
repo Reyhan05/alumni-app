@@ -35,8 +35,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/siswa',[siswaController::class, 'index'])->name('siswa');
-Route::get('/siswa/print/success',[siswaController::class, 'exportPDF'])->name('siswa.pdf');
-Route::post('/siswa/create/success',[siswaController::class, 'store'])->name('siswa.store');
-Route::get('/siswa/delete/success/{id}',[siswaController::class, 'destroy'])->name('siswa.delete');
-Route::put('/siswa/update/success/{id}', [siswaController::class, 'update'])->name('siswa.update');
+Route::middleware('auth')->prefix('siswa')->group(function () {
+    Route::get('/', [siswaController::class, 'index'])->name('siswa');
+    Route::get('/print/success',[siswaController::class, 'exportPDF'])->name('siswa.pdf');
+    Route::post('/create/success',[siswaController::class, 'store'])->name('siswa.store');
+    Route::get('/delete/success/{id}',[siswaController::class, 'destroy'])->name('siswa.delete');
+    Route::put('/update/success/{id}', [siswaController::class, 'update'])->name('siswa.update');
+    Route::get('/edit/success/{id}', [siswaController::class, 'detail'])->name('siswa.detail');
+});
