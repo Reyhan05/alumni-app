@@ -24,7 +24,11 @@
 <body>
 
     <div class="container">
-        @foreach ($details as $detail)
+        @foreach ($details->$bios as $detailBio)
+        <div class="form-group">
+            <label class="form-label">Agama</label>
+            <input type="text" class="form-control" value="{{ $detailBio->agama }}">
+        </div>
         @endforeach
     </div>
 

@@ -251,7 +251,11 @@
                             <br/><br/>
                             <!-- membuat fungsi edit -->
                             <button data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $siswa->id }}" type="button" class="btn btn-info btn-small">Edit</button>
-                            </td>
+                            <br/><br/>
+                            <!-- membuat fungsi detail -->
+                            <a href="{{ route('siswa.detail')}}" class="btn btn-secondary btn-small"></a><i class="bx bx-detail"></i></a>
+                        </td>
+
                         </tr>
 
                         <!-- Modal edit dan Update -->

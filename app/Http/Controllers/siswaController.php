@@ -109,7 +109,11 @@ class siswaController extends Controller
         $bios->nohp = $request->nohp;
         $bios->status = $request->status;
         $bios->sekolah = $request->sekolah;
+        $bios->save();
         
+        // update query builder
+        $update = Students::when('id', $students->id)->update(['id_biodata' => $bios->id]);
+
         if ($students){
             return redirect('/siswa')->with(['success' => 'Data Berhasil Disimpan']);
         } else {
