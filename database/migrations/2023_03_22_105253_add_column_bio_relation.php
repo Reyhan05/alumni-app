@@ -27,6 +27,6 @@ class AddColumnBioRelation extends Migration
      */
     public function down()
     {
-        Scheme::dropColumn('id_biodata');
+        Schema::dropColumn('id_biodata');
     }
 }

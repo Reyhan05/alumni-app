@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Students;
+use App\Models\bios;
 use App\Models\jenis_kelamin;
 use App\Http\Request\siswaValidate;
 use File;
@@ -101,6 +102,14 @@ class siswaController extends Controller
         }
         $students->save();
 
+        // untuk create data ke table bios
+        $bios = new Bios();
+        $bios->id = $request->id;
+        $bios->agama = $request->agama;
+        $bios->nohp = $request->nohp;
+        $bios->status = $request->status;
+        $bios->sekolah = $request->sekolah;
+        
         if ($students){
             return redirect('/siswa')->with(['success' => 'Data Berhasil Disimpan']);
         } else {

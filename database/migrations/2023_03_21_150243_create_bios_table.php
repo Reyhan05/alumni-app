@@ -15,6 +15,10 @@ class CreateBiosTable extends Migration
     {
         Schema::create('bios', function (Blueprint $table) {
             $table->id();
+            $table->string('agama',20);
+            $table->bigInteger('nohp');
+            $table->enum('status',['nikah','belum menikah']);
+            $table->text('sekolah',255);
             $table->timestamps();
         });
     }
@@ -27,12 +31,7 @@ class CreateBiosTable extends Migration
     public function down()
     {
         Schema::create('bios', function (Blueprint $table) {
-            $table->id();
-            $table->string('agama',20);
-            $table->bigInteger('nohp');
-            $table->enum('status',['nikah','belum menikah']);
-            $table->text('sekolah',255);
-            $table->timestamps();
+            Schema::dropColumn('id_biodata');
         });
     }
 }

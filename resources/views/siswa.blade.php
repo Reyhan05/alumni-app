@@ -162,11 +162,46 @@
                                             {{ $message }}
                                         </div>
                                         @enderror
-                                    </div>
+                                </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="form-label">Agama</div>
+                                    <select name="agama" class="form-select" required>
+                                        <option selected disabled>-- Pilih Agama --</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Budha">Budha</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Kristen">Kristen</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">No HP</label>
+                                    <input type="number" class="form-control" name="nohp" placeholder="Please insert your Phone Number" required/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="form-label">Status</div>
+                                    <select name="agama" class="form-select" required>
+                                        <option selected disabled>-- Pilih Status --</option>
+                                        <option value="menikah">Menikah</option>
+                                        <option value="belum menikah">Belum Menikah</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Sekolah</label>
+                                    <input type="email" class="form-control" name="sekolah" placeholder="Please insert your School" required/>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
+                        </div>
                         </form>
                     </div>
                 </div>
