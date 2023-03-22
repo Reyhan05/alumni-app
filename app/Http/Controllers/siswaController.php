@@ -125,7 +125,11 @@ class siswaController extends Controller
      */
     public function show($id)
     {
-        //
+        // query builder
+        $bios = Bios::get();
+        $details = Students::where($id_biodata, $bios->id)->get();
+
+        return view('detail', compact('details'));
     }
 
     /**
