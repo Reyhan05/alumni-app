@@ -10,4 +10,8 @@ class Bios extends Model
     protected $guarded = [''];
     protected $table = 'bios';
     use HasFactory;
+
+    public function bios() {
+        return $this->belongsTo(Bios::class, 'id_biodataz', 'id');
+    }
 }
