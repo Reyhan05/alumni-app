@@ -82,6 +82,7 @@ class siswaController extends Controller
         $students->jurusan = $request->jurusan;
         $students->angkatan = $request->angkatan;
         $students->alamat = $request->alamat;
+        $bios->id_biodata = 1;
 
         // untuk mendefinisikan letak folder foto
         $path = 'uploads/';

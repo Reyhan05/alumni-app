@@ -41,5 +41,5 @@ Route::middleware('auth')->prefix('siswa')->group(function () {
     Route::post('/create/success',[siswaController::class, 'store'])->name('siswa.store');
     Route::get('/delete/success/{id}',[siswaController::class, 'destroy'])->name('siswa.delete');
     Route::put('/update/success/{id}', [siswaController::class, 'update'])->name('siswa.update');
-    Route::get('/edit/success', [siswaController::class, 'detail'])->name('siswa.detail');
+    Route::get('/edit/success', [siswaController::class, 'show'])->name('siswa.detail');
 });

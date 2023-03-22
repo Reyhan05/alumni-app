@@ -12,6 +12,6 @@ class Bios extends Model
     use HasFactory;
 
     public function bios() {
-        return $this->belongsTo(Bios::class, 'id_biodataz', 'id');
+        return $this->belongsTo(Bios::class, 'id_biodata', 'id');
     }
 }
