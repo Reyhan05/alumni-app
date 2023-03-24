@@ -16,6 +16,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -185,9 +188,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="form-label">Status</div>
-                                    <select name="agama" class="form-select" required>
+                                    <select name="status" class="form-select" required>
                                         <option selected disabled>-- Pilih Status --</option>
-                                        <option value="menikah">Menikah</option>
+                                        <option value="nikah">nikah</option>
                                         <option value="belum menikah">Belum Menikah</option>
                                     </select>
                                 </div>
@@ -247,13 +250,13 @@
                         <td>{{$siswa->angkatan}}</td>
                         <td>{{$siswa->alamat}}</td>
                         <td class="text-center">
-                            <button data-href="{{route('siswa.delete',$siswa->id)}}" data-name="{{$siswa->nama}}" type="submit" class="btn btn-danger btn-small deleteSiswa">Delete</button>
+                            <a data-href="{{route('siswa.delete',$siswa->id)}}" data-name="{{$siswa->nama}}" type="submit" class="btn btn-danger btn-small deleteSiswa"><i class="bx bx-trash"></i></a>
                             <br/><br/>
                             <!-- membuat fungsi edit -->
-                            <button data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $siswa->id }}" type="button" class="btn btn-info btn-small">Edit</button>
+                            <a data-bs-toggle="modal" data-bs-target="#modalEdit_{{ $siswa->id }}" type="button" class="btn btn-info btn-small"><i class="bx bxs-edit"></i></a>
                             <br/><br/>
                             <!-- membuat fungsi detail -->
-                            <a href="{{ route('siswa.detail')}}" class="btn btn-secondary btn-small"></a><i class="bx bx-detail"></i></a>
+                            <a href="{{ route('siswa.detail')}}" class="btn btn-secondary btn-small"><i class="bx bx-detail"></i></a>
                         </td>
 
                         </tr>
@@ -355,6 +358,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{ asset('js/siswa.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script>
         $(document).on('click', '.deleteSiswa', function () {
         var url = $(this).attr('data-href');

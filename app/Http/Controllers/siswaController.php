@@ -82,7 +82,6 @@ class siswaController extends Controller
         $students->jurusan = $request->jurusan;
         $students->angkatan = $request->angkatan;
         $students->alamat = $request->alamat;
-        $bios->id_biodata = 1;
 
         // untuk mendefinisikan letak folder foto
         $path = 'uploads/';
@@ -105,7 +104,6 @@ class siswaController extends Controller
 
         // untuk create data ke table bios
         $bios = new Bios();
-        $bios->id = $request->id;
         $bios->agama = $request->agama;
         $bios->nohp = $request->nohp;
         $bios->status = $request->status;
@@ -113,13 +111,9 @@ class siswaController extends Controller
         $bios->save();
         
         // update query builder
-        $update = Students::when('id', $students->id)->update(['id_biodata' => $bios->id]);
+        $update = Students::where('id', $students->id)->update(['id_biodata' => $bios->id]);
 
-        if ($students){
-            return redirect('/siswa')->with(['success' => 'Data Berhasil Disimpan']);
-        } else {
-            return redirect('/siswa')->with(['error' => 'Data Gagal Disimpan']);
-        }
+        return redirect()->route('siswa.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -128,7 +122,7 @@ class siswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         // query builder
         $details = Students::with('bios')->get();
