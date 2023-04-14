@@ -36,7 +36,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->prefix('siswa')->group(function () {
-    Route::get('/', [siswaController::class, 'index'])->name('siswa');
+    Route::get('/', [siswaController::class, 'index'])->name('siswa.index');
     Route::get('/print/success',[siswaController::class, 'exportPDF'])->name('siswa.pdf');
     Route::post('/create/success',[siswaController::class, 'store'])->name('siswa.store');
     Route::get('/delete/success/{id}',[siswaController::class, 'destroy'])->name('siswa.delete');

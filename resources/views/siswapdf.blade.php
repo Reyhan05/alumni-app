@@ -74,7 +74,7 @@
                     @if (count($students) > 0)
                     @foreach ($students as $siswa)
                     <tr>
-                        <td>{{$no++}}</td>
+                        <td>{{$no++}}</td> 
                         <td>{{$siswa->nama}}</td>
                         <!-- <td>
                             <img class="image" src="{{ $siswa->photo == null? asset('img/avatar.png')  : asset('uploads/' . $siswa->photo) }}" alt="">    

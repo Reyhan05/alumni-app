@@ -27,7 +27,7 @@
         @foreach ($details as $detailBio)
         <div class="form-group">
             <label class="form-label">Agama</label>
-            <input type="text" class="form-control" value="{{ $detailBio->bios->agama }}" readonly>
+            <input type="text" class="form-control" value="{{ $detailBio->bios->agama ?? '' }}" readonly>
         </div>
         @endforeach
     </div>

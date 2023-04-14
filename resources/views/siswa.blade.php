@@ -39,18 +39,18 @@
     <div class="container-fluid">
         <h1>Data alumni</h1>
        <div class="col-md-12">
-       @if (session('success'))
+            @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
-        @endif
+            @endif
        </div>
        <div class="col-md-12">
-       @if (session('error'))
+            @if (session('error'))
             <div class="alert alert-error">
                 {{ session('error') }}  
             </div>
-        @endif
+            @endif
        </div>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreate">
@@ -209,7 +209,7 @@
                     </div>
                 </div>
             </div>
-        </div>`
+        </div>
         <!-- membuat sebuah table -->
         <div class="table-responsive m-4">
             <table class="table table-striped table-hover">
