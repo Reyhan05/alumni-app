@@ -232,7 +232,7 @@
                 <tbody>
                     <?php
                     $no = 1;
-                ?>
+                    ?>
                     @if (count($students) > 0)
                     @foreach ($students as $siswa)
                     <tr>
