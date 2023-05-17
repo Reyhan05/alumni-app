@@ -8,7 +8,7 @@ use App\Models\bios;
 use App\Models\jenis_kelamin;
 use App\Http\Request\siswaValidate;
 use File;
-use PDF;
+use PDF;    
 
 class siswaController extends Controller
 {
